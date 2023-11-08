@@ -131,6 +131,7 @@ class ProfileController with ChangeNotifier {
       Utils.toastMessage(error.toString());
       nameController.clear();
     });
+    //this is comment
   }
 
   //Now we wants to change the remaining profile
