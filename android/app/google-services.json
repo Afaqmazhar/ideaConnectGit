@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "536430876740",
+    "project_id": "ideafront-14827",
+    "storage_bucket": "ideafront-14827.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536430876740:android:554ec92e1ced37dabec411",
+        "android_client_info": {
+          "package_name": "com.example.ideafront"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536430876740-lf8q9k9cc6e90rumvhkovr3forr47kni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ideafront",
+            "certificate_hash": "098895be2473a7cef8b9d18973ae0ddc4ebc982f"
+          }
+        },
+        {
+          "client_id": "536430876740-icv83crjnegevcr54bea5iujd0rb6rst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnI3Gitfdp1cOk9bmrTlOgCKOIcmDiX8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536430876740-icv83crjnegevcr54bea5iujd0rb6rst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
