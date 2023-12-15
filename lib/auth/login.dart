@@ -28,8 +28,6 @@ class LoginPageState extends State<LoginPage> {
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordNode = FocusNode();
 
-
-
   // ignore: unused_field
   final _auth = FirebaseAuth.instance;
   @override
@@ -68,135 +66,164 @@ class LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        TextFormField(
-                          controller: emailController,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-
-                            hintStyle: const TextStyle(color: Colors.white),
-                            labelStyle: const TextStyle(color: Colors.white),
-                            filled: true,
-                            fillColor: Colors.teal,
-                            hintText: 'Email',
-                            enabled: true,
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 8.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: greenColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: const BorderSide(color: greenColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                        Container(
+                          decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(6.0, 10.0),
+                                blurRadius: 5.0,
+                              ),
+                            ],
                           ),
-                          focusNode: emailFocusNode,
-                          onFieldSubmitted: (value){
-                            Utils.fieldFocus(context, emailFocusNode, passwordNode);
-                          },
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Email cannot be empty";
-                            }
-                            if (!RegExp(
-                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                .hasMatch(value)) {
-                              return ("Please enter a valid email");
-                            } else {
-                              return null;
-                            }
-                          },
-                          onSaved: (value) {
-                            emailController.text = value!;
-                          },
-                          keyboardType: TextInputType.emailAddress,
+                          child: TextFormField(
+                            controller: emailController,
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.white),
+                              filled: true,
+                              fillColor: const Color(0xff092C33),
+                              hintText: 'Email',
+                              enabled: true,
+                              contentPadding: const EdgeInsets.only(
+                                  left: 14.0, bottom: 8.0, top: 8.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(color: greenColor),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: const BorderSide(color: greenColor),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            focusNode: emailFocusNode,
+                            onFieldSubmitted: (value) {
+                              Utils.fieldFocus(
+                                  context, emailFocusNode, passwordNode);
+                            },
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Email cannot be empty";
+                              }
+                              if (!RegExp(
+                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  .hasMatch(value)) {
+                                return ("Please enter a valid email");
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (value) {
+                              emailController.text = value!;
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                          ),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          controller: passwordController,
-                          obscureText: _isObscure3,
-                          style: const TextStyle(color: Colors.white),
-                          focusNode: passwordNode,
-                          decoration: InputDecoration(
-                            hintStyle: const TextStyle(color: Colors.white),
-                            labelStyle: const TextStyle(color: Colors.white),
-                            suffixIcon: IconButton(
-                                color: Colors.white,
-                                icon: Icon(_isObscure3
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
-                                onPressed: () {
-                                  setState(() {
-                                    _isObscure3 = !_isObscure3;
-                                  });
-                                }),
-                            filled: true,
-                            fillColor: Colors.teal,
-                            hintText: 'Password',
-                            enabled: true,
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 15.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: greenColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: const BorderSide(color: greenColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                        Container(
+                          decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(6.0, 10.0),
+                                blurRadius: 5.0,
+                              ),
+                            ],
                           ),
-                          validator: (value) {
-                            RegExp regex = RegExp(r'^.{6,}$');
-                            if (value!.isEmpty) {
-                              return "Password cannot be empty";
-                            }
-                            if (!regex.hasMatch(value)) {
-                              return ("please enter valid password min. 6 character");
-                            } else {
-                              return null;
-                            }
-                          },
-                          onSaved: (value) {
-                            passwordController.text = value!;
-                          },
-                          keyboardType: TextInputType.emailAddress,
+                          child: TextFormField(
+                            controller: passwordController,
+                            obscureText: _isObscure3,
+                            style: const TextStyle(color: Colors.white),
+                            focusNode: passwordNode,
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.white),
+                              suffixIcon: IconButton(
+                                  color: Colors.white,
+                                  icon: Icon(_isObscure3
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscure3 = !_isObscure3;
+                                    });
+                                  }),
+                              filled: true,
+                              fillColor: const Color(0xff092C33),
+                              hintText: 'Password',
+                              enabled: true,
+                              contentPadding: const EdgeInsets.only(
+                                  left: 14.0, bottom: 8.0, top: 15.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(color: greenColor),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: const BorderSide(color: greenColor),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            validator: (value) {
+                              RegExp regex = RegExp(r'^.{6,}$');
+                              if (value!.isEmpty) {
+                                return "Password cannot be empty";
+                              }
+                              if (!regex.hasMatch(value)) {
+                                return ("please enter valid password min. 6 character");
+                              } else {
+                                return null;
+                              }
+                            },
+                            onSaved: (value) {
+                              passwordController.text = value!;
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                          ),
                         ),
                         Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
                                 onPressed: () {
-                                  Get.to(()=>const ForGotPass());
+                                  Get.to(() => const ForGotPass());
                                 },
                                 child: 'forgot password?'
                                     .text
                                     .color(Colors.blue)
                                     .make())),
-
                         const SizedBox(
                           height: 20,
                         ),
-                        "Login"
-                            .text
-                            .white
-                            .xl2
-                            .make()
-                            .centered()
-                            .box
-                            .rounded
-                            .p8
-                            .color(greenColor)
-                            .width(380)
-                            .height(50)
-                            .make()
-                            .onTap(() {
-                          setState(() {
-                            visible = true;
-                          });
-                          signIn(emailController.text, passwordController.text);
-                        }),
-                        if (_isLoading) const CircularProgressIndicator(),
+                        Stack(
+                          alignment: Alignment.center,
+                            children: [
+                          "Login"
+                              .text
+                              .white
+                              .xl2
+                              .make()
+                              .centered()
+                              .box
+                              .rounded
+                              .p8
+                              .color(greenColor)
+                              .width(380)
+                              .height(50)
+                              .make()
+                              .onTap(() {
+                            setState(() {
+                              visible = true;
+                            });
+                            signIn(
+                                emailController.text, passwordController.text);
+                          }),
+                          if (_isLoading) const CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 4,
+                          ),
+                        ]),
                         30.heightBox,
                         'or login with'.text.size(16).bold.make(),
                         5.heightBox,
@@ -273,7 +300,7 @@ class LoginPageState extends State<LoginPage> {
               builder: (context) => const HomePageAdmins(),
             ),
           );
-        } else if (documentSnapshot.get('role') == "Investor"){
+        } else if (documentSnapshot.get('role') == "Investor") {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -293,7 +320,6 @@ class LoginPageState extends State<LoginPage> {
         _isLoading = true; // Show circular progress indicator
       });
       try {
-
         // ignore: unused_local_variable
         UserCredential userCredential =
             await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -309,7 +335,7 @@ class LoginPageState extends State<LoginPage> {
         } else if (e.code == 'wrong-password') {
           print('Wrong password provided for that user.');
         }
-      }finally {
+      } finally {
         setState(() {
           _isLoading = false; // Hide circular progress indicator
         });
